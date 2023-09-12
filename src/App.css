@@ -14,14 +14,28 @@
 }
 
 .App-header {
+  flex-direction: row;
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.HeaderButtons {
+    display: flex;
+    flex: auto auto;
+    border: 0 solid #e5e7eb;
+    font-size: 15px;
+    --tw-bg-opacity: 0.9;
+    line-height: 30px;
+    font-weight: 500;
+    font-family: Optimistic Text,-apple-system,ui-sans-serif,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    margin: 10px;
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
 }
 
 .App-link {
