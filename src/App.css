@@ -16,11 +16,11 @@
 .App-header {
   flex-direction: row;
   background-color: #282c34;
-  min-height: 10vh;
+  height: 5vh;
   display: flex;
-  align-items: flex-start;
+  align-items:center;
   justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
+  font-size: 16px;
   color: white;
 }
 
@@ -146,5 +146,68 @@
   border: 1px #282c34 solid;
   background-color: rgba(5, 98, 219, 0.836);
 }
+.LoginPage {
+    display: flex;
+    width: 100vw;
+    height: 95vh;
+    min-height: 450px;
+    justify-content: flex-end;
+    justify-items:center;
+    color: none;
+    background-color: yellow;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 400;
+}
 
+.LoginBoxContainer {
+    display: flex;
+    min-width: 400px;
+    width: 20vw;
+    min-height:400px;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    background-color: #323b3d;
+    padding: 10px;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 15px;
+    margin: auto;
+}
 
+.LoginBoxLabels {
+    display: flex;
+    color: orange;
+    justify-content: center;
+    background-color: none;
+    font-family: Arial;
+    margin: 5% auto 1% auto;
+}
+
+.LoginBoxInputsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.LoginBoxInputs {
+    display: flex;
+    color: orange;
+    justify-content: center;
+    font-family: Arial;
+    width: 30%;
+    margin: 0% auto 5% auto;
+}
+
+.LoginBoxButton {
+    display: flex;
+    color: #323b3d;
+    justify-content: center;
+    background-color: orange;
+    padding: 5px;
+    margin: 5% auto 5% auto;
+    width: 25%;
+    font-family: Arial;
+}
