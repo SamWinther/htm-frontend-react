@@ -7,7 +7,7 @@ function App() {
             <a className="HeaderButtons" href="/">Home</a>
             <a className="HeaderButtons" href="/about">About</a>
             <a className="HeaderButtons" href="/contact">Contact</a>
-            <a className="HeaderButtons" href="/login">Log In</a>
+            <a className="HeaderButtons" href="/Login">Sign in/up</a>
         </div>
         );
 }

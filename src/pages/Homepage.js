@@ -6,6 +6,7 @@ import Home from "../components/Home"
 import About from "../components/About"
 import Contact from "../components/Contact"
 import LogIn from "../components/LogIn"
+import Dashboard from "../pages/Dashboard"
 
 
 function App() {
@@ -15,9 +16,11 @@ function App() {
             <HomepageHeader />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/Home' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/login' element={<LogIn />} />
+                <Route path='/dashboard' element={(<Dashboard />)} />
             </Routes>
         </Router>
     )

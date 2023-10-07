@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import './App.css';
 import HomePage from "./pages/Homepage";
-import Dashboard from "./pages/Dashboard";
+import Login from "./pages/login";
 
 function App() {
     const [AppState, ChangeAppState] = useState("homepage")
 
     switch (AppState) {
+        default:
+            return (
+                <HomePage stateToLogin={() => ChangeAppState("Home")} />
+            )
         case "homepage":
             return (
-                <HomePage stateToLogin={() => ChangeAppState("LogedIn")} />
+                <HomePage stateToLogin={() => ChangeAppState("Home")} />
             )
-        case "LogedIn":
+        case "login":
             return (
-                <Dashboard />
+                <Login />
+            )
+        case "Dashboard":
+            return (
+                <HomePage stateToLogin={() => ChangeAppState("Contact")} />
             )
 
     }

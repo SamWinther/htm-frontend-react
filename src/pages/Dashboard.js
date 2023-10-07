@@ -1,7 +1,7 @@
 function Dashboard({ appState, stateToLogin}) {
     return (
         <>
-            This is your Dashboard.
+            This is your Dashboard. it is the world's most fancy dashboard-
         </>
     );
 }
