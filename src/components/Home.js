@@ -1,12 +1,15 @@
 import React from 'react';
-
-
+import image from '../images/risk-managements.jpg'
+import style from '../App.css'
 function App() {
+    
+
     return (
-        <>
-            <h1>HTM Homepage</h1>
-            <p>Welcome to HTM</p>
-        </>
+        <div className="WelcomePage" style = {{backgroundImage:`url(${image})`}}>
+            <h3>Risk management process can be fun.</h3>
+            <h2>We would take care of the format, therefore, you can </h2>
+            <h1>Focus on your product safety</h1>
+        </div>
     )
 }
 

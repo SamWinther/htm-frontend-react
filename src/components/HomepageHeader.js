@@ -1,13 +1,14 @@
 import React from 'react';
 
 
-function App() {
+function App({ChangeHomepageState}) {
     return (
         <div className="App-header">
-            <a className="HeaderButtons" href="/">Home</a>
-            <a className="HeaderButtons" href="/about">About</a>
-            <a className="HeaderButtons" href="/contact">Contact</a>
-            <a className="HeaderButtons" href="/Login">Sign in/up</a>
+            <h3 className="HeaderButtons" onClick={()=>ChangeHomepageState("home")}>Home</h3>
+            <h3 className="HeaderButtons" onClick={()=>ChangeHomepageState("about")}>About</h3>
+            <h3 className="HeaderButtons" onClick={()=>ChangeHomepageState("contact")}>Contact</h3>
+            <h3 className="HeaderButtons" onClick={()=>ChangeHomepageState("login")}>Sign in/up</h3>
+
         </div>
         );
 }
