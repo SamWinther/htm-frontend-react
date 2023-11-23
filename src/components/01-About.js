@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../App.css'
+// import style from '../App.css'
 import image from '../images/risk.jpg'
 
 function App() {

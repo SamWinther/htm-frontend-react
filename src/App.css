@@ -16,7 +16,7 @@
 .App-header {
   flex-direction: row;
   background-color: #282c34;
-  height: 5vh;
+  height: 5dvh;
   min-height: 30px;
   display: flex;
   align-items:center;
@@ -29,7 +29,7 @@
   flex-direction: row;
   background-color: #282c34;
   min-height: 30px;
-  height: 5vh;
+  height: 5dvh;
   display: flex;
   align-items:center;
   justify-content: flex-start;
@@ -276,8 +276,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   width: 100%;
-  height: 100%;
+  height: 95dvh;
   color: cyan;
 }
 
@@ -285,8 +286,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 95dvh;
+  color: rgb(12, 7, 56);
+  background-size: cover;
+}
+
+.h2center{
+  display: flex;
+  text-align: center;
   width: 100%;
   height: 100%;
-  color: cyan;
+  color: rgb(151, 7, 7);
   background-size: cover;
 }

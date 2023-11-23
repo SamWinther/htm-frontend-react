@@ -1,51 +1,42 @@
 import React, { useState } from 'react';
 import DashboardHeader from '../components/DashboardHeader.js'
-import ProjectAsAnItem from '../components/ProjectAsAnItem.js'
+import MakeProjectsList from '../components/MakeProjectsList.js'
+import checkUserforSpecialRole from '../utils/CheckUserforSpecialRole.js';
 // import DropDownMenuHeaderItem from "../components/dropDownMenuHeaderItem"
 
 function Dashboard({appState, userInfo}) {
 
     const [activeProject, setActiveProject] = useState(0)
-    const [dashboardState, serDashboardState] = useState("")
+    const [dashboardState, setDashboardState] = useState("")
+    let isAdmin = checkUserforSpecialRole(userInfo, "Admin")
+    let isSuperUser = checkUserforSpecialRole(userInfo, "SuperUser")
+    if(isAdmin || isSuperUser) {
+        userInfo.ProjectRoles = userInfo.ProjectRoles.filter(ProjectRole => ProjectRole.Role !== "Admin" && ProjectRole.Role !== "SuperUser")
+    }
 
-    console.log(userInfo)
     switch (dashboardState) {
         default:
             return (
                 <>
                     <DashboardHeader ButtonsName={["start", "end", "procject"]} />
-
-                    Welcome {userInfo.FirstName}, which project you like to work on?
-                    <ul className="ProjectsList" key={"ul-Projects"}>
-                        {userInfo.ProjectRoles.map((ProjectRole,index) => {
-                            return(
-                                <ProjectAsAnItem 
-                                    ProjectRole = {ProjectRole}
-                                    index = {index}
-                                    setActiveProject = {setActiveProject}
-                                    serDashboardState = {serDashboardState}
-                                />
-                            )
-                        })}
-                    </ul>
-                    <p>organization</p>
-                    <p>{userInfo.Organization}</p>
-                    <p>firstName</p>
-                    <p>{userInfo.FirstName}</p>
-                    <p>given_name</p>
-                    <p>{userInfo.LastName}</p>
-                    <p>{Object.keys(userInfo)}</p>
-                    {/* <p>Active project is {userInfo.projectroles[activeProject].Project}</p> */}
-                    <p>Active project is {userInfo.ProjectRoles[activeProject].Project}</p>
-                    {/* <p>Active rRole is {activeRole}</p> */}
-
+                    <MakeProjectsList 
+                        userInfo ={userInfo} 
+                        setActiveProject = 
+                        {setActiveProject} 
+                        setDashboardState={setDashboardState}
+                        isSuperUser = {isSuperUser}
+                        isAdmin = {isAdmin}
+                    />
                 </>
             );
+
         case "Project":
+            //this is the a normal user panel
             return(
                 <>
                     <p>the project is choosen {userInfo.ProjectRoles[activeProject].Project}</p>
-                    <button onClick={()=>{serDashboardState("")}}>Return Back to the Dashboard</button>
+                    <p>the user is having {userInfo.ProjectRoles[activeProject].Role} Role</p>
+                    <button onClick={()=>{setDashboardState("")}}>Return Back to the Dashboard</button>
                 </>
 
             )

@@ -1,6 +1,6 @@
 import React from 'react';
 import image from '../images/risk-managements.jpg'
-import style from '../App.css'
+// import style from '../App.css'
 function App() {
     
 

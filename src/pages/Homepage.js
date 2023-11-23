@@ -3,7 +3,7 @@ import React , { useState } from 'react';
 
 import HomepageHeader from "../components/HomepageHeader"
 import Home from "../components/Home"
-import About from "../components/About"
+import About from "../components/01-About"
 import Contact from "../components/Contact"
 import LogIn from "../components/LogInBox"
 
