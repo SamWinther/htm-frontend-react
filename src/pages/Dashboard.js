@@ -8,8 +8,8 @@ function Dashboard({appState, userInfo}) {
 
     const [activeProject, setActiveProject] = useState(0)
     const [dashboardState, setDashboardState] = useState("")
-    let isAdmin = checkUserforSpecialRole(userInfo, "Admin")
-    let isSuperUser = checkUserforSpecialRole(userInfo, "SuperUser")
+    const [isAdmin, setIsAdmin] = useState(checkUserforSpecialRole(userInfo, "Admin"))
+    const [isSuperUser, setIsSuperUser] = useState(checkUserforSpecialRole(userInfo, "SuperUser"))
     if(isAdmin || isSuperUser) {
         userInfo.ProjectRoles = userInfo.ProjectRoles.filter(ProjectRole => ProjectRole.Role !== "Admin" && ProjectRole.Role !== "SuperUser")
     }
