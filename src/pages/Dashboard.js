@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DashboardHeader from '../components/DashboardHeader.js'
 import MakeProjectsList from '../components/MakeProjectsList.js'
 import checkUserforSpecialRole from '../utils/CheckUserforSpecialRole.js';
-import Cookies from 'js-cookie';
 import LogoutButton from "../components/logoutButton.js"
 // import Cookies from 'js-cookie';
 
@@ -12,8 +11,8 @@ function Dashboard({changeAppState, userInfo}) {
 
     const [activeProject, setActiveProject] = useState(0)
     const [dashboardState, setDashboardState] = useState("")
-    const [isAdmin, setIsAdmin] = useState(checkUserforSpecialRole(userInfo, "Admin"))
-    const [isSuperUser, setIsSuperUser] = useState(checkUserforSpecialRole(userInfo, "SuperUser"))
+    const [isAdmin] = useState(checkUserforSpecialRole(userInfo, "Admin"))
+    const [isSuperUser] = useState(checkUserforSpecialRole(userInfo, "SuperUser"))
     if(isAdmin || isSuperUser) {
         userInfo.ProjectRoles = userInfo.ProjectRoles.filter(ProjectRole => ProjectRole.Role !== "Admin" && ProjectRole.Role !== "SuperUser")
     }

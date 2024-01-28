@@ -34,7 +34,6 @@ function App({changeAppState , setUserinfoState}) {
                 var token = data.token
                 SaveCoockies(token);
                 const tokenPayload = jwt(token);
-
                 
                 var userInfo = tokenPayload.prn
                 var userRolesArray = JSON.parse(userInfo)

@@ -1,8 +1,9 @@
 import {React} from 'react';
+import SuperUserPanel from "../components/SuperUserPanel"
 
 function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSuperUser, isAdmin}) {
 
-  if(!isAdmin && !isSuperUser) {
+  if(!isAdmin) {
     return (
       <>
         Welcome {userInfo.FirstName}, which prroject you like to work on?
@@ -19,31 +20,12 @@ function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSup
               )
         })}
         </ul>
+        <SuperUserPanel isSuperUser= {isSuperUser}/>
       </>
     )
-  } else if(isAdmin){
+  } else {
     return(
       <p>You are Admin</p>
-    )
-  } else if(isSuperUser){
-    return (
-      <>
-        Welcome {userInfo.FirstName}, whichbproject you like to work on?
-        <ul className="ProjectsList">
-        {userInfo.ProjectRoles.map((ProjectRole,index) => {
-              return(
-                <ProjectAsAnItem
-                key={"ul-Projects"+index}
-                ProjectRole = {ProjectRole}
-                index = {index}
-                setActiveProject = {setActiveProject}
-                setDashboardState = {setDashboardState}
-                />
-              )
-        })}
-        </ul>
-        <p >This is the SuperUser panel</p>
-      </>
     )
   }
 }
