@@ -1,15 +1,16 @@
 import {React} from 'react';
 
 function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSuperUser, isAdmin}) {
-    
+
   if(!isAdmin && !isSuperUser) {
     return (
       <>
         Welcome {userInfo.FirstName}, which prroject you like to work on?
-        <ul className="ProjectsList" key={"ul-Projects"}>
-        {userInfo.ProjectRoles.map((ProjectRole,index) => {  
+        <ul className="ProjectsList">
+        {userInfo.ProjectRoles.map((ProjectRole,index) => {
               return(
-                <ProjectAsAnItem 
+                <ProjectAsAnItem
+                key={"ul-Projects"+index}
                 ProjectRole = {ProjectRole}
                 index = {index}
                 setActiveProject = {setActiveProject}
@@ -28,10 +29,11 @@ function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSup
     return (
       <>
         Welcome {userInfo.FirstName}, whichbproject you like to work on?
-        <ul className="ProjectsList" key={"ul-Projects"}>
-        {userInfo.ProjectRoles.map((ProjectRole,index) => {  
+        <ul className="ProjectsList">
+        {userInfo.ProjectRoles.map((ProjectRole,index) => {
               return(
-                <ProjectAsAnItem 
+                <ProjectAsAnItem
+                key={"ul-Projects"+index}
                 ProjectRole = {ProjectRole}
                 index = {index}
                 setActiveProject = {setActiveProject}
@@ -40,7 +42,7 @@ function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSup
               )
         })}
         </ul>
-        <p>This is the SuperUser panel</p>
+        <p >This is the SuperUser panel</p>
       </>
     )
   }
@@ -51,8 +53,9 @@ function MakeProjectsList ({userInfo, setActiveProject, setDashboardState, isSup
 
 function ProjectAsAnItem({ProjectRole, index, setActiveProject, setDashboardState}) {
   return (
-    <li 
-        key = {"li_project"+ProjectRole.Role+ProjectRole.Projectid}
+    <li
+        // key = {"li_project"+ProjectRole.Role+ProjectRole.Projectid}
+        // key = {"li_project"+index}
         onClick={()=>{
             setActiveProject(index)
             setDashboardState("Project")

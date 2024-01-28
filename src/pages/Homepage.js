@@ -6,6 +6,8 @@ import Home from "../components/Home"
 import About from "../components/01-About"
 import Contact from "../components/Contact"
 import LogIn from "../components/LogInBox"
+import Cookies from 'js-cookie';
+import jwt from 'jwt-decode'
 
 
 function App({changeAppState , setUserinfoState}) {
@@ -43,13 +45,27 @@ function App({changeAppState , setUserinfoState}) {
                 </div>
             )
         case "login":
-            return (
-                // <HomePage stateToDashboard={() => ChangeAppState("Dashboard")} />
-                <div>
-                    <HomepageHeader ChangeHomepageState={ChangeHomepageState}/>
-                    <LogIn changeAppState={changeAppState} setUserinfoState = {setUserinfoState} />
-                </div>
-            )
+            let token = Cookies.get('authToken');
+            if(token) {
+                const tokenPayload = jwt(token);
+
+                        
+                var userInfo = tokenPayload.prn
+                var userRolesArray = JSON.parse(userInfo)
+
+                console.log("The token was avialable.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                
+                setUserinfoState({Username: "UserName is not set in Token Payload." ,FirstName:tokenPayload.given_name, LastName:tokenPayload.family_name, ProjectRoles: userRolesArray, Organization: tokenPayload.Organization})
+                changeAppState("Dashboard")
+            } else {
+                return (
+                    // <HomePage stateToDashboard={() => ChangeAppState("Dashboard")} />
+                    <div>
+                        <HomepageHeader ChangeHomepageState={ChangeHomepageState}/>
+                        <LogIn changeAppState={changeAppState} setUserinfoState = {setUserinfoState} />
+                    </div>
+                )
+            }
     }
     
 }

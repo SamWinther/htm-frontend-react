@@ -6,7 +6,7 @@ function App({ButtonsName, ChangeHomepageState}) {
         <div className="dashboardHeader">
             <>
             {/* {console.log(ButtonsName)} */}
-            {ButtonsName.map(element => { return( <DropDownMenuHeaderItem className="dashboardHeaderButtons" menuName={element} /> ) })}
+            {ButtonsName.map(element => { return( <DropDownMenuHeaderItem key={"ul-dashboardHeader"+element} className="dashboardHeaderButtons" menuName={element} /> ) })}
             </>
         </div>
         );

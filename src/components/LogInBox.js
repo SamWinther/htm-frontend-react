@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import style from './logInBox.css';
 import LabelInput from './labelInput'
 import jwt from 'jwt-decode'
+import SaveCoockies from '../utils/SaveCoockies';
 
 
 function App({changeAppState , setUserinfoState}) {
@@ -13,7 +14,7 @@ function App({changeAppState , setUserinfoState}) {
     // const [AuthResult, setAuthResult] = useState();
     // setAuthResult(null);
 
-    const handleClick = async() => {
+    const loginButton_handleClick = async() => {
         setCounter(counter+1)
         var fetchAddress =  `${process.env.REACT_APP_Server}API/Authentication`
         console.log(process.env.REACT_APP_Server)
@@ -31,6 +32,7 @@ function App({changeAppState , setUserinfoState}) {
             console.log(data.explain)
             if(data.explain === "Login successfull.") {
                 var token = data.token
+                SaveCoockies(token);
                 const tokenPayload = jwt(token);
 
                 
@@ -44,7 +46,7 @@ function App({changeAppState , setUserinfoState}) {
             }
         })
     }
-
+    
     return (
         <div className="LoginPage">
             <h1 className={style.bigblue}>Log In</h1>
@@ -52,10 +54,10 @@ function App({changeAppState , setUserinfoState}) {
             <div className="LoginBoxContainer">
 
 
-                <LabelInput labelName={"Username"} inputPlaceholder = {"Enter Username"} saveInputToState={setUsername} onEnter={handleClick} /> 
-                <LabelInput labelName={"Password"} inputPlaceholder = {"Enter Password"} saveInputToState={setPassword} onEnter={handleClick} /> 
+                <LabelInput labelName={"Username"} inputPlaceholder = {"Enter Username"} saveInputToState={setUsername} onEnter={loginButton_handleClick} /> 
+                <LabelInput labelName={"Password"} inputPlaceholder = {"Enter Password"} saveInputToState={setPassword} onEnter={loginButton_handleClick} /> 
                 
-                <button className="LoginBoxButton" type="submit" onClick = {()=>{handleClick(username, password)}}>Login</button>
+                <button className="LoginBoxButton" type="submit" onClick = {()=>{loginButton_handleClick(username, password)}}>Login</button>
                 
                 <div className="LoginBoxLabels">
                     <label> <b>Remember me</b></label>

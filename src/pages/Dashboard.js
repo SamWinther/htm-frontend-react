@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import DashboardHeader from '../components/DashboardHeader.js'
 import MakeProjectsList from '../components/MakeProjectsList.js'
 import checkUserforSpecialRole from '../utils/CheckUserforSpecialRole.js';
+import Cookies from 'js-cookie';
+import LogoutButton from "../components/logoutButton.js"
+// import Cookies from 'js-cookie';
+
 // import DropDownMenuHeaderItem from "../components/dropDownMenuHeaderItem"
 
-function Dashboard({appState, userInfo}) {
+function Dashboard({changeAppState, userInfo}) {
 
     const [activeProject, setActiveProject] = useState(0)
     const [dashboardState, setDashboardState] = useState("")
@@ -27,6 +31,7 @@ function Dashboard({appState, userInfo}) {
                         isSuperUser = {isSuperUser}
                         isAdmin = {isAdmin}
                     />
+                    <LogoutButton changeAppState={ (toState) => changeAppState(toState)} />
                 </>
             );
 
